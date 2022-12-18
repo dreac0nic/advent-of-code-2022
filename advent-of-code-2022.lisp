@@ -7,6 +7,7 @@
 (defvar *domain* "adventofcode.com")
 (defvar *year* "2022")
 
+(defvar *aoc-session-token* nil)
 
 
 (defun slurp (path)
@@ -28,7 +29,8 @@
                (nth-value 0
                           (dexador:get (format nil "~a/day/~a/input" (base-endpoint) day-number)
                                        :cookie-jar (let ((cookies (make-cookie-jar)))
-                                                     (-<>> (or (sb-ext:posix-getenv "AOC_SESSION")
+                                                     (-<>> (or *aoc-session-token*
+                                                               (sb-ext:posix-getenv "AOC_SESSION")
                                                                (slurp ".session"))
                                                            (make-cookie :name "session"
                                                                         :value <>
@@ -45,7 +47,8 @@
   "Submits the given answer for the day specified. Optionally :part-one and :part-two can be specified."
   (elt (lquery:$ (initialize (dexador:post (format nil "~a/day/~a/answer" (base-endpoint) day-number)
                                            :cookie-jar (let ((cookies (make-cookie-jar)))
-                                                         (-<>> (or (sb-ext:posix-getenv "AOC_SESSION")
+                                                         (-<>> (or *aoc-session-token*
+                                                                   (sb-ext:posix-getenv "AOC_SESSION")
                                                                    (slurp ".session"))
                                                                (make-cookie :name "session"
                                                                             :value <>

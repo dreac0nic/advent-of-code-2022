@@ -11,4 +11,8 @@
 
 
 (defpackage #:day-01
-  (:use #:cl #:utility #:arrows #:advent-of-code-2021 #:cl-ppcre))
+  (:use #:cl #:utility #:arrows #:advent-of-code-2022 #:cl-ppcre))
+
+
+(defpackage #:day-02
+  (:use #:cl #:utility #:arrows #:advent-of-code-2022 #:cl-ppcre))

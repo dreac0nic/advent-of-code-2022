@@ -16,3 +16,19 @@
 
 (defpackage #:day-02
   (:use #:cl #:utility #:arrows #:advent-of-code-2022 #:cl-ppcre))
+
+
+(defpackage #:day-03
+  (:use #:cl #:utility #:arrows #:advent-of-code-2022 #:cl-ppcre))
+
+
+(defpackage #:day-04
+  (:use #:cl #:utility #:arrows #:advent-of-code-2022 #:cl-ppcre))
+
+
+(defpackage #:day-05
+  (:use #:cl #:utility #:arrows #:advent-of-code-2022 #:cl-ppcre))
+
+
+(defpackage #:day-06
+  (:use #:cl #:utility #:arrows #:advent-of-code-2022 #:cl-ppcre))

@@ -25,22 +25,21 @@
 
 (defun get-puzzle-input (day-number)
   "Retrieves the user's puzzle input for the day specified. Day should be provided as a single integer representing taht day."
-  (string-trim '(#\Space #\Newline #\Tab)
-               (nth-value 0
-                          (dexador:get (format nil "~a/day/~a/input" (base-endpoint) day-number)
-                                       :cookie-jar (let ((cookies (make-cookie-jar)))
-                                                     (-<>> (or *aoc-session-token*
-                                                               (sb-ext:posix-getenv "AOC_SESSION")
-                                                               (slurp ".session"))
-                                                           (make-cookie :name "session"
-                                                                        :value <>
-                                                                        :domain ".adventofcode.com"
-                                                                        :secure-p 't
-                                                                        :httponly-p 't
-                                                                        :path "/")
-                                                           list
-                                                           (merge-cookies cookies))
-                                                     cookies)))))
+  (nth-value 0
+             (dexador:get (format nil "~a/day/~a/input" (base-endpoint) day-number)
+                          :cookie-jar (let ((cookies (make-cookie-jar)))
+                                        (-<>> (or *aoc-session-token*
+                                                  (sb-ext:posix-getenv "AOC_SESSION")
+                                                  (slurp ".session"))
+                                              (make-cookie :name "session"
+                                                           :value <>
+                                                           :domain ".adventofcode.com"
+                                                           :secure-p 't
+                                                           :httponly-p 't
+                                                           :path "/")
+                                              list
+                                              (merge-cookies cookies))
+                                        cookies))))
 
 
 (defun submit-answer (day-number answer &optional (part :part-one))

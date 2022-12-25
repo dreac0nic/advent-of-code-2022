@@ -14,7 +14,8 @@
                (:file "day-03")
                (:file "day-04")
                (:file "day-05")
-               (:file "day-06"))
+               (:file "day-06")
+               (:file "day-07"))
   :description "A collection of solutions to the Advent of Code 2022"
   :long-description
   #.(uiop:read-file-string

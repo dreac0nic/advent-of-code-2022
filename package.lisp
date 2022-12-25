@@ -32,3 +32,7 @@
 
 (defpackage #:day-06
   (:use #:cl #:utility #:arrows #:advent-of-code-2022 #:cl-ppcre))
+
+
+(defpackage #:day-07
+  (:use #:cl #:utility #:arrows #:advent-of-code-2022 #:cl-ppcre))
